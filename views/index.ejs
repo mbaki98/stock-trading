@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Manager</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Stock Manager</h1>
+    <p>Cash Balance: $<%= cashBalance %></p>
+    <ul>
+        <% stocks.forEach(stock => { %>
+            <li><%= stock.name %> - Quantity: <%= stock.quantity %></li>
+        <% }); %>
+    </ul>
+    <form method="post" action="/buy">
+        <label for="stock">Stock Name:</label>
+        <input type="text" name="stock" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" required>
+        <button type="submit">Buy</button>
+    </form>
+    <form method="post" action="/sell">
+        <label for="stock">Stock Name:</label>
+        <input type="text" name="stock" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" required>
+        <button type="submit">Sell</button>
+    </form>
+</body>
+</html>
